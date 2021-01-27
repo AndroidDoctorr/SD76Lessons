@@ -13,6 +13,8 @@ namespace _05_Classes.Tests
             Greeter greeter = new Greeter();
                             // argument
             greeter.SayHello("Andrew");
+
+            greeter.SayRandomGreeting("Ross");
         }
     }
 }

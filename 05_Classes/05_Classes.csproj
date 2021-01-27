@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Calculator.cs" />
     <Compile Include="Classes\Greeter.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Vehicle.cs" />

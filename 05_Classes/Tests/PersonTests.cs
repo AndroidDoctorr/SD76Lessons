@@ -13,7 +13,8 @@ namespace _05_Classes.Tests
             Person person = new Person();
             person.FirstName = "Andrew";
             person.LastName = "Torr";
-            Console.WriteLine($"{person.FirstName} {person.LastName}");
+            person.DateOfBirth = new DateTime(1985, 9, 22);
+            Console.WriteLine($"{person.FirstName} {person.LastName}, age {person.Age}");
 
             Console.WriteLine(person.FullName);
 
@@ -21,7 +22,7 @@ namespace _05_Classes.Tests
                 "Ashley",
                 "Lawrence",
                 new DateTime(1989, 4, 26),
-                new Vehicle()
+                new Vehicle("Chevy", "Malibu", VehicleType.Car)
             );
 
             Console.WriteLine(otherPerson.FullName);

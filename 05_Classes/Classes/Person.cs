@@ -8,6 +8,13 @@ namespace _05_Classes.Classes
 {
     public class Person
     {
+        // The usual order, this is just for organization's sake
+        // Fields
+        // Properties
+        // Constructors
+        // Methods
+
+
         // Properties
         // - tend to be accessible from outside
         // - use Pascal case
@@ -42,6 +49,18 @@ namespace _05_Classes.Classes
 
         public DateTime DateOfBirth { get; set; }
 
+        public int Age
+        {
+            get
+            {
+                TimeSpan ageSpan = DateTime.Now - DateOfBirth;
+                double totalAgeInYears = ageSpan.TotalDays / 365.241;
+                int yearsOfAge = Convert.ToInt32(totalAgeInYears);
+                return yearsOfAge;
+            }
+        }
+
+
         public Vehicle Vehicle { get; set; }
         
         // Empty Constructor
@@ -54,6 +73,11 @@ namespace _05_Classes.Classes
             LastName = lastName;
             DateOfBirth = dob;
             Vehicle = vehicle;
+        }
+
+        public void SayHello()
+        {
+            Console.WriteLine($"{FullName} says 'Hello'");
         }
     }
 }
