@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE9FEC26-4B67-4621-9CDD-E3F345432674}</ProjectGuid>
+    <ProjectGuid>{056EA08D-C18D-43CE-8062-0959526F6A20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_05_Classes</RootNamespace>
-    <AssemblyName>05_Classes</AssemblyName>
+    <RootNamespace>_06_Inheritance</RootNamespace>
+    <AssemblyName>06_Inheritance</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,25 +49,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Calculator.cs" />
-    <Compile Include="Classes\Greeter.cs" />
-    <Compile Include="Classes\Person.cs" />
-    <Compile Include="Classes\Room.cs" />
-    <Compile Include="Classes\Vehicle.cs" />
+    <Compile Include="PeopleTests\CustomerTests.cs" />
+    <Compile Include="People\Customer.cs" />
+    <Compile Include="People\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\PersonTests.cs" />
-    <Compile Include="Tests\GreeterTests.cs" />
-    <Compile Include="Tests\RoomTests.cs" />
-    <Compile Include="Tests\VehicleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\06_Inheritance\06_Inheritance.csproj">
-      <Project>{056ea08d-c18d-43ce-8062-0959526f6a20}</Project>
-      <Name>06_Inheritance</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

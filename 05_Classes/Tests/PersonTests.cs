@@ -1,4 +1,5 @@
 ﻿using _05_Classes.Classes;
+using _06_Inheritance.People;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -28,6 +29,16 @@ namespace _05_Classes.Tests
             Console.WriteLine(otherPerson.FullName);
             Console.WriteLine("make: " + otherPerson.Vehicle.Make);
             // otherPerson.FirstName = "Ash";
+        }
+
+        [TestMethod]
+        public void IdTest()
+        {
+            for (int i=0; i<10; i++)
+            {
+                User user = new User("dsfh");
+                Console.WriteLine(user.ID);
+            }
         }
     }
 }
