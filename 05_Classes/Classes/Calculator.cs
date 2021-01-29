@@ -25,5 +25,29 @@ namespace _05_Classes.Classes
             int difference = numOne - numTwo;
             return difference;
         }
+
+        public double Divide(int numOne, int numTwo)
+        {
+            // return (double) numOne / numTwo;
+            // double numOneDouble = Convert.ToDouble(numOne);
+            // double numTwoDouble = Convert.ToDouble(numTwo);
+            // double quotient = numOneDouble / numTwoDouble;
+            double quotient = 3 / 5;
+            return quotient;
+        }
+
+        public double Add(string numStringOne, string numStringTwo)
+        {
+            Console.WriteLine("Add method : " + numStringOne + ", " + numStringTwo);
+            // double numOne = Double.Parse(numStringOne);
+            int numOne = Convert.ToInt32(numStringOne);
+            Console.WriteLine(numOne);
+            int numTwo = Convert.ToInt32(numStringTwo);
+            Console.WriteLine(numTwo);
+            return numOne + numTwo;
+
+
+            // "Nathan,Bob,Devon,Ashley".Split(',');
+        }
     }
 }
