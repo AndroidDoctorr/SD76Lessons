@@ -10,12 +10,13 @@ namespace _06_Inheritance.People
 {
     public class User
     {
+        // Fields (not directly accessible - private)
         private string _firstName;
         private string _lastName;
 
         public string ID { get; }
         public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        public string Email { get; }
 
         public string Name
         {
@@ -39,7 +40,7 @@ namespace _06_Inheritance.People
         }
 
         // Constructor:
-        public User(string email)
+        public User(string email, string userName)
         {
             Email = email;
             // setter not needed because this is the constructor

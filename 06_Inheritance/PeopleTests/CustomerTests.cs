@@ -10,7 +10,7 @@ namespace _06_Inheritance.PeopleTests
         [TestMethod]
         public void CustomersAndUsers()
         {
-            User user = new User("fake@email.com");
+            User user = new User("fake@email.com", "FakeUser");
             Customer customer = new Customer("notReal@fakeEmail.biz");
 
             // user.SetFirstName("Ross");

@@ -49,8 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animals\Animal.cs" />
+    <Compile Include="Animals\Bird.cs" />
+    <Compile Include="AnimalTests\BirdTests.cs" />
     <Compile Include="PeopleTests\CustomerTests.cs" />
     <Compile Include="People\Customer.cs" />
+    <Compile Include="People\Employee.cs" />
     <Compile Include="People\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace _06_Inheritance.People
     {
         private int _maxId = 0;
         public int CustomerNumber { get; set; }
-        public Customer(string email) : base(email)
+        public Customer(string email) : base(email, "Username")
         {
             // Random random = new Random();
             // CustomerNumber = random.Next(0,999999999);
