@@ -153,5 +153,11 @@ namespace _08_RepositoryPattern_Tests
             bool wasAlsoRemoved = _repo.DeleteContent("fkjhgjhkgkjh");
             Assert.IsFalse(wasAlsoRemoved);
         }
+
+        [TestMethod]
+        public void GenreTest()
+        {
+
+        }
     }
 }
