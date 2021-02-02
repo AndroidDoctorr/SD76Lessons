@@ -84,6 +84,9 @@ namespace _07_RepositoryPattern_Repo
             return false;
         }
 
+        // Personal challenge, if you like:
+        // AddGenreToContent(string title, GenreType newGenre)
+
         public bool DeleteContent(string title)
         {
             StreamingContent contentToDelete = GetContentByTitle(title);

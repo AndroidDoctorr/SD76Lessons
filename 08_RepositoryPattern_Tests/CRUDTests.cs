@@ -1,4 +1,5 @@
 ﻿using _07_RepositoryPattern_Repo;
+using _07_RepositoryPattern_Repo.Content;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace _08_RepositoryPattern_Tests
                 Maturity.PG,
                 5,
                 GenreType.Comedy
+                // new List<GenreType> { GenreType.Comedy, GenreType.SciFi }
                 );
 
             _repo.AddContentToDirectory(theRoom);
@@ -43,6 +45,24 @@ namespace _08_RepositoryPattern_Tests
                 GenreType.Drama
                 );
             _repo.AddContentToDirectory(_content);
+
+
+
+            Show show = new Show();
+            show.Title = "Arrested Development";
+            show.SeasonCount = 4; // Yes that is correct don't look it up Season 5 does not exist.
+            Episode ep = new Episode();
+            ep.Title = "Courting Disasters";
+            Episode ep2 = new Episode();
+            ep2.Title = "Pier Pressure";
+
+            _repo.AddContentToDirectory(show);
+
+            Movie movie = new Movie();
+            movie.Title = "Roller Blade";
+            movie.Description = "In a world of blood and greed, curvaceous crusaders battle to rebuild a battered land.";
+
+            _repo.AddContentToDirectory(movie);
         }
 
         [TestMethod]
