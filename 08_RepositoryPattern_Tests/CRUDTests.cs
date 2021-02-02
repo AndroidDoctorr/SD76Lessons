@@ -1,6 +1,7 @@
 ﻿using _07_RepositoryPattern_Repo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace _08_RepositoryPattern_Tests
 {
@@ -83,6 +84,54 @@ namespace _08_RepositoryPattern_Tests
 
             // Assert
             Assert.AreEqual(searchResult, theRoom);
+        }
+
+        [TestMethod]
+        public void GetFamilyFriendly_ShouldOnlyGetFamilyFriendly()
+        {
+            // Arrange
+            // Act
+            List<StreamingContent> familyFriendly = _repo.GetFamilyFriendlyContent();
+            // Assert
+            foreach (StreamingContent content in familyFriendly)
+            {
+                Assert.IsTrue(content.IsFamilyFriendly);
+            }
+            Assert.AreEqual(2, familyFriendly.Count);
+        }
+
+        [TestMethod]
+        public void UpdateContent_ShouldUpdate()
+        {
+            StreamingContent newContent = new StreamingContent(
+                "Spaceballs",
+                "A star pilot and his sidekick must come to the rescue of a Princess and save the galaxy from a ruthless race of beings known as Spaceballs.",
+                Maturity.PG13,
+                5,
+                GenreType.SciFiComedy
+                );
+
+            bool wasUpdated = _repo.UpdateExistingContent("Spaceballs", newContent);
+
+            Assert.IsTrue(wasUpdated);
+
+            StreamingContent updatedContent = _repo.GetContentByTitle("Spaceballs");
+
+            GenreType expected = GenreType.SciFiComedy;
+            GenreType actual = updatedContent.GenreType;
+
+            Assert.AreEqual(expected, actual);
+            Console.WriteLine(updatedContent.Description);
+        }
+
+        [TestMethod]
+        public void DeleteContent_ShouldDelete()
+        {
+            bool wasRemoved = _repo.DeleteContent("the room");
+            Assert.IsTrue(wasRemoved);
+
+            bool wasAlsoRemoved = _repo.DeleteContent("fkjhgjhkgkjh");
+            Assert.IsFalse(wasAlsoRemoved);
         }
     }
 }
