@@ -159,5 +159,8 @@ namespace _08_RepositoryPattern_Tests
         {
 
         }
+        private int randomVariable = 5;
+
+        // And here's a comment
     }
 }
