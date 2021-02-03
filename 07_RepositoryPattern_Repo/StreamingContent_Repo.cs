@@ -15,8 +15,8 @@ namespace _07_RepositoryPattern_Repo
             get
             {
                 return _directory.Count;
-            }
         }
+            }
         // CRUD methods
         // Create
         // Read
@@ -50,6 +50,11 @@ namespace _07_RepositoryPattern_Repo
             // Really, we would want to throw an error here and then handle it
             throw new Exception("No content with that title exists");
             // return null;
+        }
+        public bool DeleteContent(string title)
+        {
+            StreamingContent contentToDelete = GetContentByTitle(title);
+            return _directory.Remove(contentToDelete);
         }
 
         // Challenge:

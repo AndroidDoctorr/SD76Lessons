@@ -18,7 +18,8 @@ namespace _07_RepositoryPattern_Repo
         // Based on the MaturityRating
         // (MaturityRating should probably be an enum)
 
-        public bool IsFamilyFriendly {
+        public bool IsFamilyFriendly
+        {
             get
             {
                 // This is OK
@@ -31,7 +32,7 @@ namespace _07_RepositoryPattern_Repo
 
                 // This is NOT OK
                 // return MaturityRating == Maturity.G ? true : MaturityRating == Maturity.PG ? true : ...
-                
+
                 switch (MaturityRating)
                 {
                     case Maturity.G:
@@ -67,6 +68,6 @@ namespace _07_RepositoryPattern_Repo
         }
     }
 
-    public enum Maturity { G, PG, R, PG13, NC17, TVY, TVY7, TVMA, TVPG }
-    public enum GenreType { Horror, Comedy, SciFi, Drama, Romance, Romans, Action, International }
+    public enum Maturity { G = 1, PG, R, PG13, NC17, TVY, TVY7, TVMA, TVPG }
+    public enum GenreType { Horror = 1, Comedy, SciFi, Drama, Romance, Romans, Action, International }
 }
