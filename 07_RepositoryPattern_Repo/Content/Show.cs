@@ -10,6 +10,7 @@ namespace _07_RepositoryPattern_Repo.Content
     {
         public int SeasonCount { get; set; }
 
+
         // CHALLENGE
 
         // Refactor EpisodeCount and AverageRunTime to use the Episodes property
@@ -17,11 +18,13 @@ namespace _07_RepositoryPattern_Repo.Content
 
         public int EpisodeCount
         {
+
             get
             {
                 return Episodes.Count;
             }
         }
+
         public double AverageRunTime
         {
             get
@@ -30,9 +33,11 @@ namespace _07_RepositoryPattern_Repo.Content
                 foreach (Episode ep in Episodes)
                 {
                     totalRunTime += ep.RunTime;
+
                     // totalRunTime = totalRunTime + ep.RunTime;
                 }
                 return totalRunTime / (double) EpisodeCount;
+
             }
         }
         public List<Episode> Episodes { get; set; } = new List<Episode>();
