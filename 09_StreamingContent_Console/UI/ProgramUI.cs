@@ -12,8 +12,10 @@ namespace _09_StreamingContent_Console.UI
         private readonly StreamingContent_Repo _repo = new StreamingContent_Repo();
         public void Run()
         {
-            SeedContentList();
-            RunMenu();
+            // SeedContentList();
+            // RunMenu();
+            Console.WriteLine(DateTime.Now - new DateTime(1985, 9, 22));
+            Console.ReadKey();
         }
         private void RunMenu()
         {
