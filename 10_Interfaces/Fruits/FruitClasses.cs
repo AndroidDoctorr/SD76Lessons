@@ -73,8 +73,8 @@ namespace _10_Interfaces.Fruits
 
         public string Peel()
         {
-            throw new Exception("what are you, a toddler?");
-            // return "who the heck peels grapes?";
+            // throw new Exception("what are you, a toddler?");
+            return "who the heck peels grapes?";
             // apparently toddlers making rosé
         }
     }
