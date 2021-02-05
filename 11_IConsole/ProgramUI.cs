@@ -34,6 +34,9 @@ namespace _11_IConsole
                 _console.WriteLine($"This is a {fruit.Name}");
                 _console.WriteLine(fruit.Peel());
             }
+
+            Console.WriteLine("Press any key to quit...");
+            Console.ReadKey();
         }
     }
 }
