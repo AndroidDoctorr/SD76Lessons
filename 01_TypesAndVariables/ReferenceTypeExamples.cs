@@ -10,8 +10,8 @@ namespace _01_TypesAndVariables
         [TestMethod]
         public void Strings()
         {
-            string firstName = "Andrew";
-            string lastName = "Torr";
+            string firstName = "Sef";
+            string lastName = "Mclaughlin";
 
             string concatenated = firstName + " " + lastName;
 
