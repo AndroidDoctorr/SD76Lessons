@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using _11_IConsole;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
@@ -73,6 +74,11 @@ namespace _04_Loops
 
             for (int i = 0; i != 5; i = randy.Next(0, 21))
             {
+                if (i == 1)
+                {
+                    FunConsole console = new FunConsole("Ashley");
+                    console.WriteLine("ONE!!");
+                }
                 Console.WriteLine(i);
             }
         }

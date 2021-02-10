@@ -12,8 +12,10 @@ namespace _09_StreamingContent_Console.UI
         private readonly StreamingContent_Repo _repo = new StreamingContent_Repo();
         public void Run()
         {
-            SeedContentList();
-            RunMenu();
+            // SeedContentList();
+            // RunMenu();
+            Console.WriteLine(DateTime.Now - new DateTime(1985, 9, 22));
+            Console.ReadKey();
         }
         private void RunMenu()
         {
@@ -26,7 +28,8 @@ namespace _09_StreamingContent_Console.UI
                     "2. Find streaming content by title\n" +
                     "3. Add new streaming content\n" +
                     "4. Remove streaming content\n" +
-                    "5. Exit");
+                    "5. Update streaming content\n" +
+                    "0. Exit");
 
                 string userInput = Console.ReadLine();
 
@@ -51,6 +54,10 @@ namespace _09_StreamingContent_Console.UI
                         RemoveContentFromList();
                         break;
                     case "5":
+                        //-- Update content
+                        UpdateContent();
+                        break;
+                    case "0":
                         //-- Exit
                         continueToRun = false;
                         break;
@@ -144,11 +151,8 @@ namespace _09_StreamingContent_Console.UI
 
         private void ShowAllContentByTitle()
         {
-            Console.Clear();
-
-            Console.WriteLine("Enter a title: \n");
-
-            string title = Console.ReadLine();
+            // DRY = Don't Repeat Yourself
+            string title = GetTitleFromUser();
 
             StreamingContent content = _repo.GetContentByTitle(title);
 
@@ -163,6 +167,90 @@ namespace _09_StreamingContent_Console.UI
             }
 
             Console.ReadKey();
+        }
+
+        private void UpdateContent()
+        {
+            StreamingContent content;
+            do
+            {
+                // Console.WriteLine("Type \"cancel\" to go back to the menu");
+                string title = GetTitleFromUser();
+                content = _repo.GetContentByTitle(title);
+                if (title == "cancel" || title == "\"cancel\"")
+                {
+                    return;
+                }
+            } while (content == null);
+
+            Console.WriteLine("What would you like to update?\n" +
+                "1. Title\n" +
+                "2. Description\n" +
+                "3. Maturity Rating\n" +
+                "4. Star Rating\n" +
+                "5. Genre");
+
+            string option = Console.ReadLine();
+            switch (option)
+            {
+                case "1":
+                    // Change title
+                    Console.WriteLine("Enter a new title:");
+                    string newTitle = Console.ReadLine();
+                    content.Title = newTitle;
+                    break;
+                case "2":
+                    // Change Description
+                    break;
+                case "3":
+                    // Change Maturity Rating
+                    break;
+                case "4":
+                    // Change Star Rating
+                    break;
+                case "5":
+                    // Change Genre
+                    Console.WriteLine("What is the new genre?\n" +
+                        "1. Horror\n" +
+                        "2. Comedy\n" +
+                        "3. SciFi\n" +
+                        "4. Drama\n" +
+                        "5. Romance\n" +
+                        "6. Romans\n" +
+                        "7. Action\n" +
+                        "8. International\n" +
+                        "9. SciFiComedy");
+                    string newGenre = Console.ReadLine();
+                    switch(newGenre)
+                    {
+                        case "1":
+                        case "2":
+                        case "3":
+                        case "4":
+                        case "5":
+                        case "6":
+                        case "7":
+                        case "8":
+                        case "9":
+                            int genreNumber = Convert.ToInt32(newGenre);
+
+                            
+
+
+                            content.GenreType = (GenreType) genreNumber;
+                            break;
+                        default:
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Clear();
+                            Console.WriteLine("INVALID GENRE!!");
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.ReadKey();
+                            break;
+                    }
+                    break;
+            }
         }
 
         private void RemoveContentFromList()
@@ -208,11 +296,19 @@ namespace _09_StreamingContent_Console.UI
 
         private void SeedContentList()
         {
-            StreamingContent starwar = new StreamingContent("Star wars", "space <3", Maturity.R, 5.0, GenreType.Drama);
-            StreamingContent startrek = new StreamingContent("Star trek", "space </3", Maturity.R, 3.0, GenreType.Drama);
+            StreamingContent starwar = new StreamingContent("Star wars", "space <3", Maturity.R, 4.9, GenreType.Drama);
+            StreamingContent startrek = new StreamingContent("Star trek", "ethics", Maturity.R, 5.0, GenreType.Drama);
 
             _repo.AddContentToDirectory(starwar);
             _repo.AddContentToDirectory(startrek);
+        }
+
+        private string GetTitleFromUser()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter a title: \n");
+            string title = Console.ReadLine();
+            return title;
         }
     }
 }
