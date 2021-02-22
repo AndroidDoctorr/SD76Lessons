@@ -36,7 +36,7 @@ namespace _05_Classes.Tests
         {
             for (int i=0; i<10; i++)
             {
-                User user = new User("dsfh");
+                User user = new User("dsfh", "dgf");
                 Console.WriteLine(user.ID);
             }
         }

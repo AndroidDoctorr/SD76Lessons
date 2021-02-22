@@ -41,7 +41,7 @@ namespace Repo_Challenge
             // THIS CODE IS UNREACHABLE
 
             // LINQ
-            // This one line does the exact same thing as the above tlines:
+            // This one line does the exact same thing as the above lines:
             return _customers.SingleOrDefault(customer => customer.CustomerId == id);
 
             // Another example - get all customers over 40
