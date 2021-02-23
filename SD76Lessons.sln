@@ -21,10 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_RepositoryPattern_Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_StreamingContent_Console", "09_StreamingContent_Console\09_StreamingContent_Console.csproj", "{54952393-CEF4-4CF7-A6B4-AB1DA9329599}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGallery", "ArtGallery\ArtGallery.csproj", "{3F86828C-2B6C-48D6-A802-787087CFD7BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBuzz.csproj", "{B76F5888-85DD-4E87-BAC2-75C828D9BA23}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_Interfaces", "10_Interfaces\10_Interfaces.csproj", "{5FAFDB31-A34C-4A72-8595-150CB871E178}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_IConsole", "11_IConsole\11_IConsole.csproj", "{2231E111-C386-4AFB-B3DC-FC3EE3C540E0}"
@@ -32,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repo_Challenge", "Repo_Challenge\Repo_Challenge.csproj", "{366383C3-DF2A-4429-8AA1-FCC2632D25C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_APIs", "12_APIs\12_APIs.csproj", "{F13AEE5C-0CAF-4954-808A-A6C2DCCD5346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_RestaurantRater", "13_RestaurantRater\13_RestaurantRater.csproj", "{1D84026E-4AAD-450C-922A-2C0A527C2959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{F13AEE5C-0CAF-4954-808A-A6C2DCCD5346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F13AEE5C-0CAF-4954-808A-A6C2DCCD5346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F13AEE5C-0CAF-4954-808A-A6C2DCCD5346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D84026E-4AAD-450C-922A-2C0A527C2959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D84026E-4AAD-450C-922A-2C0A527C2959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D84026E-4AAD-450C-922A-2C0A527C2959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D84026E-4AAD-450C-922A-2C0A527C2959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
