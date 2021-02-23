@@ -10,7 +10,7 @@ namespace _13_RestaurantRater.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Restaurant Rater API";
 
             return View();
         }

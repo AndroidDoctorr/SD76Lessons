@@ -36,7 +36,21 @@ namespace _13_RestaurantRater.Controllers
         public async Task<IHttpActionResult> GetAllRestaurants()
         {
             List<Restaurant> restaurants = await _context.Restaurants.ToListAsync();
-            return Ok(restaurants);
+
+            List<RestaurantListItem> restaurantList = restaurants
+                .Select(r => new RestaurantListItem()
+                {
+                    Name = r.Name,
+                    Address = r.Address,
+                    Rating = r.Rating,
+                    Id = r.Id,
+                }).ToList();
+
+            return Ok(restaurantList);
+
+
+            // hypothetical Select() example:
+            // List<string> names = users.Select(u => u.Name).ToList();
         }
 
         [HttpGet]
@@ -44,10 +58,14 @@ namespace _13_RestaurantRater.Controllers
         {
             Restaurant restaurant = await _context.Restaurants.FindAsync(id);
 
+            // Make a RestaurantDetail model that allows this method to work without crashing again
+
             if (restaurant == default)
             {
                 return NotFound(); // 404
             }
+
+            // Don't return this!
 
             return Ok(restaurant);
         }
@@ -55,6 +73,32 @@ namespace _13_RestaurantRater.Controllers
         // Race condition - a situation where two async tasks happening, not sure which will finish first, how the code runs depends on which finishes first (we shouldn't ever have to deal with that)
 
         // U
+        [HttpPut]
+        public async Task<IHttpActionResult> UpdateRestaurant([FromUri] int id, [FromBody] Restaurant model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Restaurant restaurant = await _context.Restaurants.FindAsync(id);
+
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+
+            restaurant.Name = model.Name;
+            restaurant.Address = model.Address;
+            // restaurant.Rating = model.Rating;
+            restaurant.Owner = model.Owner;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
         // D
 
 
