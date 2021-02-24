@@ -9,17 +9,17 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1D84026E-4AAD-450C-922A-2C0A527C2959}</ProjectGuid>
+    <ProjectGuid>{41763F09-AB75-489B-88EA-F46E5BA8C0FD}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_13_RestaurantRater</RootNamespace>
-    <AssemblyName>13_RestaurantRater</AssemblyName>
+    <RootNamespace>_14_GeneralStore</RootNamespace>
+    <AssemblyName>14_GeneralStore</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44377</IISExpressSSLPort>
+    <IISExpressSSLPort>44392</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -162,40 +162,23 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RatingController.cs" />
-    <Compile Include="Controllers\RestaurantController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102231509252_InitialCreate.cs" />
-    <Compile Include="Migrations\202102231509252_InitialCreate.designer.cs">
-      <DependentUpon>202102231509252_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102231854356_initial.cs" />
-    <Compile Include="Migrations\202102231854356_initial.designer.cs">
-      <DependentUpon>202102231854356_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102231902547_AddedRestaurantOwner.cs" />
-    <Compile Include="Migrations\202102231902547_AddedRestaurantOwner.designer.cs">
-      <DependentUpon>202102231902547_AddedRestaurantOwner.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102232012281_AddRatingsTable.cs" />
-    <Compile Include="Migrations\202102232012281_AddRatingsTable.designer.cs">
-      <DependentUpon>202102232012281_AddRatingsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102232105431_RestaurantUsesActualRatings.cs" />
-    <Compile Include="Migrations\202102232105431_RestaurantUsesActualRatings.designer.cs">
-      <DependentUpon>202102232105431_RestaurantUsesActualRatings.cs</DependentUpon>
+    <Compile Include="Migrations\202102241923289_Initial.cs" />
+    <Compile Include="Migrations\202102241923289_Initial.designer.cs">
+      <DependentUpon>202102241923289_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Rating.cs" />
-    <Compile Include="Models\RatingListItem.cs" />
-    <Compile Include="Models\Restaurant.cs" />
-    <Compile Include="Models\RestaurantDbContext.cs" />
-    <Compile Include="Models\RestaurantDetail.cs" />
-    <Compile Include="Models\RestaurantListItem.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductUpdate.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -251,7 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Restaurant\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -283,20 +265,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102231509252_InitialCreate.resx">
-      <DependentUpon>202102231509252_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102231854356_initial.resx">
-      <DependentUpon>202102231854356_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102231902547_AddedRestaurantOwner.resx">
-      <DependentUpon>202102231902547_AddedRestaurantOwner.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102232012281_AddRatingsTable.resx">
-      <DependentUpon>202102232012281_AddRatingsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102232105431_RestaurantUsesActualRatings.resx">
-      <DependentUpon>202102232105431_RestaurantUsesActualRatings.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102241923289_Initial.resx">
+      <DependentUpon>202102241923289_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -315,9 +285,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52584</DevelopmentServerPort>
+          <DevelopmentServerPort>52862</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44377/</IISUrl>
+          <IISUrl>https://localhost:44392/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

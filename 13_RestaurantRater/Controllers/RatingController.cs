@@ -36,16 +36,29 @@ namespace _13_RestaurantRater.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetAllRatings()
         {
-            List<Rating> ratings = await _context.Ratings.ToListAsync();
+            List<RatingListItem> ratings = await _context.Ratings
+                .Select(r => new RatingListItem()
+                {
+                    Id = r.Id,
+                    FoodScore = r.FoodScore,
+                    RestaurantName = r.Restaurant.Name,
+                })
+                .ToListAsync();
             return Ok(ratings);
         }
 
         [HttpGet]
         public async Task<IHttpActionResult> GetAllRatingsForRestaurant(int id)
         {
-            List<Rating> ratings = await _context.Ratings
+            List<RatingListItem> ratings = await _context.Ratings
                 // LINQ
                 .Where(r => r.RestaurantId == id)
+                .Select(r => new RatingListItem() {
+                    Id = r.Id,
+                    // AverageScore = r.AverageScore,
+                    FoodScore = r.FoodScore,
+                    RestaurantName = r.Restaurant.Name,
+                })
                 .ToListAsync();
             return Ok(ratings);
         }

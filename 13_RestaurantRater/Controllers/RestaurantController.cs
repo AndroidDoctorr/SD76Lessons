@@ -38,6 +38,7 @@ namespace _13_RestaurantRater.Controllers
             List<Restaurant> restaurants = await _context.Restaurants.ToListAsync();
 
             List<RestaurantListItem> restaurantList = restaurants
+                // Select can convert a list of one type of thing into a list of another type of thing
                 .Select(r => new RestaurantListItem()
                 {
                     Name = r.Name,
@@ -46,11 +47,13 @@ namespace _13_RestaurantRater.Controllers
                     Id = r.Id,
                 }).ToList();
 
-            return Ok(restaurantList);
+            // .Select() example - ints to strings
+            // List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
+            // List<string> strings = numbers.Select(n => "#" + n.ToString()).ToList();
 
-
-            // hypothetical Select() example:
             // List<string> names = users.Select(u => u.Name).ToList();
+
+            return Ok(restaurantList);
         }
 
         [HttpGet]
@@ -67,7 +70,16 @@ namespace _13_RestaurantRater.Controllers
 
             // Don't return this!
 
-            return Ok(restaurant);
+            RestaurantDetail restaurantDetail = new RestaurantDetail() {
+                Id = restaurant.Id,
+                Name = restaurant.Name,
+                Address = restaurant.Address,
+                Owner = restaurant.Owner,
+                Rating = restaurant.Rating,
+                AverageFoodScore = restaurant.AverageFoodScore,
+            };
+
+            return Ok(restaurantDetail);
         }
 
         // Race condition - a situation where two async tasks happening, not sure which will finish first, how the code runs depends on which finishes first (we shouldn't ever have to deal with that)
